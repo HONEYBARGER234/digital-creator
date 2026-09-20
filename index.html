@@ -1,42 +1,157 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
-    <title>Moles Creativity</title>
+    <title>Digital Creator | Moles</title>
 
     <style>
-       body {
-           font-family: Arial;
-           test-align: center;
-           background: #f2f2f2;
-           padding: 80px;
-       }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
 
-       h1 {
-           font-size: 45px;
-       }
+        header {
+            background: #1f1f1f;
+            padding: 25px;
+        }
 
-       p {
-          font-size: 20px;
-       }
- 
-       button {
-          padding: 15px 30px;
-          font-size: 18px;
-          cursor: pointer;
+        header h1 {
+            margin: 0;
+            font-size: 35px;
+        }
 
-      }
-  </style>
+        header p {
+            color: #aaa;
+        }
+
+        .hero {
+            padding: 70px 20px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .hero span {
+            color: #00ff88;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ccc;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 25px;
+            background: #00ff88;
+            color: #111;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .services {
+            padding: 40px 20px;
+            background: #181818;
+        }
+
+        .services h2 {
+            font-size: 30px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #252525;
+            width: 250px;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .card h3 {
+            color: #00ff88;
+        }
+
+        footer {
+            padding: 25px;
+            background: #0b0b0b;
+            color: #888;
+        }
+    </style>
 </head>
 
 <body>
 
-   <h1>Moles Creativity</h1>
+    <header>
+        <h1>MOLES</h1>
+        <p>Digital Creator</p>
+    </header>
 
-   <p>Graphic Designer - Digital Creator</p>
+    <section class="hero">
+        <h2>Welcome to <span>Moles</span></h2>
 
-   <p>I create designs that help businesses look professional online.</p>
+        <p>
+            I create eye-catching graphics, digital content and creative designs
+            that help brands and businesses stand out online.
+        </p>
 
-   <button>contact me 09039286104</button>
+        <a href="#services" class="button">View My Services</a>
+    </section>
+
+    <section class="services" id="services">
+        <h2>My Services</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Graphic Design</h3>
+                <p>
+                    Flyers, banners, logos, social media designs and more.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Social Media</h3>
+                <p>
+                    Creative content and management ideas for social media pages.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Digital Marketing</h3>
+                <p>
+                    Creative strategies to help businesses reach more customers.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="hero">
+        <h2>Let's Work Together</h2>
+
+        <p>
+            Have a project? Let's turn your idea into something people will notice.
+        </p>
+
+        <a href="mailto:your@email.com" class="button">Contact Me</a>
+    </section>
+
+    <footer>
+        © 2026 Moles Digital Creator. All Rights Reserved.
+    </footer>
 
 </body>
-</html>       
+</html>
