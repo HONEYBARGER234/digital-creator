@@ -1,432 +1,1093 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Moles | Digital Creator</title>
+<title>Molescreativivity | Creative Digital Studio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0b0b0b;
-            color: white;
-            line-height: 1.6;
-        }
+:root{
+    --bg:#070707;
+    --card:#111;
+    --card2:#151515;
+    --text:#f5f5f5;
+    --muted:#a5a5a5;
+    --accent:#d6b36a;
+    --accent2:#f1d18b;
+    --border:#262626;
+}
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(10,10,10,0.95);
-            border-bottom: 1px solid #222;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #00ff88;
-        }
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 14px;
-        }
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
 
-        nav a:hover {
-            color: #00ff88;
-        }
+/* NAVBAR */
 
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #0b0b0b, #151515);
-        }
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(7,7,7,.88);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-        .hero h1 {
-            font-size: clamp(45px, 9vw, 80px);
-            margin-bottom: 10px;
-        }
+.nav-inner{
+    height:75px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-        .hero h1 span {
-            color: #00ff88;
-        }
+.logo{
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:1px;
+}
 
-        .hero h2 {
-            color: #ccc;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+.logo span{
+    color:var(--accent);
+}
 
-        .hero p {
-            max-width: 650px;
-            margin: auto;
-            color: #aaa;
-            font-size: 18px;
-        }
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
 
-        .buttons {
-            margin-top: 30px;
-        }
+.nav-links a{
+    color:#ddd;
+    font-size:14px;
+    transition:.3s;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 14px 25px;
-            margin: 8px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            background: #00ff88;
-            color: #07130d;
-            transition: 0.3s;
-        }
+.nav-links a:hover{
+    color:var(--accent);
+}
 
-        .btn:hover {
-            transform: translateY(-4px);
-        }
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
 
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 1px solid #00ff88;
-        }
+/* HERO */
 
-        section {
-            padding: 80px 8%;
-        }
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    padding-top:75px;
+}
 
-        .section-title {
-            text-align: center;
-            font-size: 35px;
-            margin-bottom: 45px;
-        }
+.hero::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:var(--accent);
+    opacity:.08;
+    filter:blur(100px);
+    border-radius:50%;
+    left:-150px;
+    top:120px;
+}
 
-        .section-title span {
-            color: #00ff88;
-        }
+.hero::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#fff;
+    opacity:.04;
+    filter:blur(100px);
+    border-radius:50%;
+    right:-150px;
+    bottom:50px;
+}
 
-        .about {
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
-            color: #bbb;
-            font-size: 18px;
-        }
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+}
 
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid var(--border);
+    border-radius:50px;
+    color:var(--accent2);
+    font-size:13px;
+    margin-bottom:25px;
+    background:#0e0e0e;
+}
 
-        .card {
-            background: #171717;
-            border: 1px solid #292929;
-            border-radius: 15px;
-            padding: 30px;
-            width: 280px;
-            text-align: center;
-            transition: 0.3s;
-        }
+.hero h1{
+    font-size:clamp(48px,9vw,95px);
+    line-height:1;
+    letter-spacing:-4px;
+}
 
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #00ff88;
-        }
+.hero h1 span{
+    color:var(--accent);
+}
 
-        .card h3 {
-            color: #00ff88;
-            margin-bottom: 12px;
-        }
+.hero h2{
+    margin:25px 0 15px;
+    font-size:clamp(20px,4vw,32px);
+}
 
-        .card p {
-            color: #aaa;
-        }
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:var(--muted);
+    font-size:17px;
+}
 
-        .portfolio-box {
-            background: #171717;
-            border: 1px dashed #444;
-            border-radius: 15px;
-            padding: 50px 20px;
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
-        }
+.buttons{
+    margin-top:35px;
+}
 
-        .portfolio-box h3 {
-            color: #00ff88;
-            margin-bottom: 10px;
-        }
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:7px;
+    margin:6px;
+    font-weight:bold;
+    font-size:14px;
+    transition:.3s;
+}
 
-        .price {
-            font-size: 30px;
-            font-weight: bold;
-            margin: 15px 0;
-            color: white;
-        }
+.btn-primary{
+    background:var(--accent);
+    color:#090909;
+}
 
-        .contact {
-            text-align: center;
-            background: #111;
-        }
+.btn-primary:hover{
+    transform:translateY(-4px);
+    background:var(--accent2);
+}
 
-        .contact p {
-            color: #aaa;
-            margin-bottom: 20px;
-        }
+.btn-outline{
+    border:1px solid var(--accent);
+    color:var(--accent);
+}
 
-        footer {
-            text-align: center;
-            padding: 30px 15px;
-            background: #050505;
-            color: #777;
-        }
+.btn-outline:hover{
+    background:var(--accent);
+    color:#090909;
+}
 
-        .socials a {
-            color: #00ff88;
-            text-decoration: none;
-            margin: 0 8px;
-        }
+/* GENERAL */
 
-        @media (max-width: 700px) {
-            header {
-                flex-direction: column;
-                gap: 12px;
-            }
+section{
+    padding:100px 0;
+}
 
-            nav a {
-                margin: 0 7px;
-                font-size: 12px;
-            }
+.section-heading{
+    text-align:center;
+    margin-bottom:55px;
+}
 
-            section {
-                padding: 60px 5%;
-            }
+.section-heading small{
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+}
 
-            .hero h2 {
-                font-size: 20px;
-            }
-        }
-    </style>
+.section-heading h2{
+    font-size:42px;
+    margin-top:10px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    max-width:600px;
+    margin:12px auto 0;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-text h3{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    color:var(--muted);
+    margin-bottom:15px;
+}
+
+.about-box{
+    padding:40px;
+    border:1px solid var(--border);
+    background:linear-gradient(145deg,#111,#0b0b0b);
+    border-radius:18px;
+    text-align:center;
+}
+
+.dynamic-logo{
+    font-size:55px;
+    font-weight:900;
+    letter-spacing:-3px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.dynamic-logo span{
+    color:var(--accent);
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+}
+
+/* SERVICES */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:30px;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent);
+}
+
+.icon{
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* PORTFOLIO */
+
+.portfolio{
+    background:#0b0b0b;
+}
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.project{
+    height:240px;
+    border-radius:16px;
+    border:1px solid var(--border);
+    padding:25px;
+    display:flex;
+    align-items:flex-end;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#181818,#0d0d0d);
+    transition:.35s;
+}
+
+.project:hover{
+    transform:scale(1.02);
+    border-color:var(--accent);
+}
+
+.project:nth-child(2){
+    background:linear-gradient(135deg,#211e18,#0d0d0d);
+}
+
+.project:nth-child(3){
+    background:linear-gradient(135deg,#171717,#211d15);
+}
+
+.project:nth-child(4){
+    background:linear-gradient(135deg,#1b1814,#090909);
+}
+
+.project:nth-child(5){
+    background:linear-gradient(135deg,#191919,#272117);
+}
+
+.project:nth-child(6){
+    background:linear-gradient(135deg,#201d17,#0b0b0b);
+}
+
+.project-info{
+    position:relative;
+    z-index:2;
+}
+
+.project small{
+    color:var(--accent);
+}
+
+.project h3{
+    margin-top:5px;
+}
+
+/* PRICING */
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    max-width:950px;
+    margin:auto;
+}
+
+.price-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:35px;
+    border-radius:18px;
+    text-align:center;
+}
+
+.price-card.featured{
+    border-color:var(--accent);
+    transform:translateY(-10px);
+}
+
+.price-card h3{
+    color:var(--accent);
+}
+
+.price{
+    font-size:38px;
+    font-weight:bold;
+    margin:18px 0;
+}
+
+.price-card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* TESTIMONIAL */
+
+.testimonial{
+    max-width:800px;
+    margin:auto;
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:40px;
+    border-radius:18px;
+    text-align:center;
+}
+
+.stars{
+    color:var(--accent);
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+.testimonial p{
+    color:#ccc;
+    font-size:18px;
+    font-style:italic;
+}
+
+/* CONTACT */
+
+.contact{
+    background:#0b0b0b;
+}
+
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.contact-box p{
+    color:var(--muted);
+    margin-bottom:25px;
+}
+
+.form{
+    display:grid;
+    gap:15px;
+    margin-top:30px;
+}
+
+.form input,
+.form textarea{
+    width:100%;
+    padding:15px;
+    background:#111;
+    border:1px solid var(--border);
+    border-radius:8px;
+    color:white;
+    outline:none;
+}
+
+.form textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.form input:focus,
+.form textarea:focus{
+    border-color:var(--accent);
+}
+
+/* FOOTER */
+
+footer{
+    padding:45px 0;
+    border-top:1px solid var(--border);
+    text-align:center;
+}
+
+.footer-logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.footer-logo span{
+    color:var(--accent);
+}
+
+footer p{
+    color:#777;
+    font-size:13px;
+    margin-top:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .nav-links{
+        position:absolute;
+        top:75px;
+        left:0;
+        width:100%;
+        background:#090909;
+        flex-direction:column;
+        align-items:center;
+        padding:25px;
+        display:none;
+        border-bottom:1px solid var(--border);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .portfolio-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    section{
+        padding:75px 0;
+    }
+
+    .section-heading h2{
+        font-size:32px;
+    }
+
+    .cards,
+    .portfolio-grid,
+    .pricing-grid{
+        grid-template-columns:1fr;
+    }
+
+    .price-card.featured{
+        transform:none;
+    }
+
+    .dynamic-logo{
+        font-size:45px;
+    }
+
+    .nav-inner{
+        width:92%;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">MOLES</div>
+<!-- NAVIGATION -->
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<header class="navbar">
+<div class="container nav-inner">
+
+<a href="#home" class="logo">
+Moles<span>creativivity</span>
+</a>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
 </header>
 
 
+<!-- HOME -->
+
 <section class="hero" id="home">
 
-    <div>
-        <h1>MOLES <span>CREATIVITY</span></h1>
+<div class="hero-content container">
 
-        <h2>Digital Creator • Graphic Designer • Creative</h2>
+<div class="badge">
+CREATIVE DIGITAL STUDIO
+</div>
 
-        <p>
-            I create clean, attractive and memorable designs
-            that help businesses and personal brands stand out online.
-        </p>
+<h1>
+Moles<span>creativivity</span>
+</h1>
 
-        <div class="buttons">
-            <a class="btn" href="#portfolio">View My Work</a>
+<h2>
+Design. Digital. Websites.
+</h2>
 
-            <a class="btn btn-outline" href="#contact">
-                Hire Me
-            </a>
-        </div>
-    </div>
+<p>
+We create powerful visual identities, digital experiences
+and modern websites that help brands stand out.
+</p>
 
+<div class="buttons">
+
+<a href="#portfolio" class="btn btn-primary">
+Explore Our Work
+</a>
+
+<a href="#contact" class="btn btn-outline">
+Start a Project
+</a>
+
+</div>
+
+</div>
 </section>
 
+
+<!-- ABOUT -->
 
 <section id="about">
 
-    <h2 class="section-title">
-        About <span>Me</span>
-    </h2>
+<div class="container">
 
-    <div class="about">
+<div class="section-heading">
 
-        <p>
-            I'm Moles, a digital creator and graphic designer.
-            I enjoy turning ideas into visual designs that look
-            professional, modern and engaging.
-        </p>
+<small>Who We Are</small>
 
-        <br>
+<h2>Creative Ideas. <span style="color:#d6b36a">Real Results.</span></h2>
 
-        <p>
-            Whether you need a flyer, social media design,
-            banner or other creative content, I'm available
-            to work with you.
-        </p>
+<p>
+Molescreativivity is a creative digital studio focused on
+design, digital marketing, social media and website creation.
+</p>
 
-    </div>
+</div>
 
+<div class="about-grid">
+
+<div class="about-text">
+
+<h3>Built to make your brand stand out.</h3>
+
+<p>
+I'm Moles Design, a digital creator passionate about
+turning ideas into professional visual experiences.
+</p>
+
+<p>
+From social media graphics to complete websites,
+Molescreativivity helps businesses and personal brands
+present themselves professionally online.
+</p>
+
+<a href="#contact" class="btn btn-primary">
+Work With Me
+</a>
+
+</div>
+
+<div class="about-box">
+
+<div class="dynamic-logo">
+M<span>C</span>
+</div>
+
+<h3>Moles Design</h3>
+
+<p style="color:#999">
+Creative Designer • Digital Marketer • Website Creator
+</p>
+
+</div>
+
+</div>
+</div>
 </section>
 
+
+<!-- SERVICES -->
 
 <section id="services">
 
-    <h2 class="section-title">
-        My <span>Services</span>
-    </h2>
+<div class="container">
 
-    <div class="cards">
+<div class="section-heading">
 
-        <div class="card">
-            <h3>Graphic Design</h3>
-            <p>
-                Flyers, banners, posters, logos and other
-                creative designs.
-            </p>
-        </div>
+<small>What We Do</small>
 
-        <div class="card">
-            <h3>Social Media Design</h3>
-            <p>
-                Eye-catching content for Instagram,
-                Facebook, X and other platforms.
-            </p>
-        </div>
+<h2>Our <span style="color:#d6b36a">Services</span></h2>
 
-        <div class="card">
-            <h3>Digital Marketing</h3>
-            <p>
-                Creative digital content that helps brands
-                attract and communicate with customers.
-            </p>
-        </div>
+<p>
+Professional digital services designed to give your brand
+a stronger online presence.
+</p>
 
-    </div>
+</div>
 
+<div class="cards">
+
+<div class="card">
+<div class="icon">🎨</div>
+<h3>Graphic Design</h3>
+<p>
+Flyers, banners, posters, logos, social media graphics
+and professional visual content.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📱</div>
+<h3>Social Media</h3>
+<p>
+Creative content and digital strategies for stronger
+social media presence.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📈</div>
+<h3>Digital Marketing</h3>
+<p>
+Creative digital marketing solutions designed to help
+businesses reach their audience.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💻</div>
+<h3>Website Creation</h3>
+<p>
+Modern responsive websites built for businesses,
+creators and personal brands.
+</p>
+</div>
+
+</div>
+</div>
 </section>
 
 
-<section id="portfolio">
+<!-- PORTFOLIO -->
 
-    <h2 class="section-title">
-        My <span>Portfolio</span>
-    </h2>
+<section class="portfolio" id="portfolio">
 
-    <div class="portfolio-box">
+<div class="container">
 
-        <h3>Your Designs Go Here</h3>
+<div class="section-heading">
 
-        <p>
-            This section will contain your actual design
-            projects and previous work.
-        </p>
+<small>Selected Work</small>
 
-        <a class="btn" href="#contact">
-            Request a Design
-        </a>
+<h2>Creative <span style="color:#d6b36a">Portfolio</span></h2>
 
-    </div>
+<p>
+A selection of creative project concepts. Your actual work
+can be added here as you build your portfolio.
+</p>
 
+</div>
+
+<div class="portfolio-grid">
+
+<div class="project">
+<div class="project-info">
+<small>BRAND DESIGN</small>
+<h3>Luxury Brand Identity</h3>
+</div>
+</div>
+
+<div class="project">
+<div class="project-info">
+<small>SOCIAL MEDIA</small>
+<h3>Social Campaign</h3>
+</div>
+</div>
+
+<div class="project">
+<div class="project-info">
+<small>GRAPHIC DESIGN</small>
+<h3>Creative Flyer</h3>
+</div>
+</div>
+
+<div class="project">
+<div class="project-info">
+<small>WEB DESIGN</small>
+<h3>Business Website</h3>
+</div>
+</div>
+
+<div class="project">
+<div class="project-info">
+<small>DIGITAL MARKETING</small>
+<h3>Marketing Campaign</h3>
+</div>
+</div>
+
+<div class="project">
+<div class="project-info">
+<small>CREATIVE DESIGN</small>
+<h3>Personal Brand</h3>
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
 
-<section id="services">
+<!-- PRICING -->
 
-    <h2 class="section-title">
-        Simple <span>Pricing</span>
-    </h2>
+<section id="pricing">
 
-    <div class="cards">
+<div class="container">
 
-        <div class="card">
-            <h3>Basic Design</h3>
-            <div class="price">₦2,000</div>
-            <p>Simple creative design.</p>
-        </div>
+<div class="section-heading">
 
-        <div class="card">
-            <h3>Standard Design</h3>
-            <div class="price">₦3,000</div>
-            <p>More detailed and polished design.</p>
-        </div>
+<small>Investment</small>
 
-        <div class="card">
-            <h3>Custom Project</h3>
-            <div class="price">Let's Talk</div>
-            <p>Large or special projects.</p>
-        </div>
+<h2>Simple <span style="color:#d6b36a">Pricing</span></h2>
 
-    </div>
+<p>
+Choose a service that fits your project.
+Custom projects can be discussed directly.
+</p>
 
+</div>
+
+<div class="pricing-grid">
+
+<div class="price-card">
+
+<h3>Basic Design</h3>
+
+<div class="price">$10</div>
+
+<p>
+Simple professional graphic design
+for personal or business use.
+</p>
+
+<br>
+
+<a href="#contact" class="btn btn-outline">
+Choose Plan
+</a>
+
+</div>
+
+
+<div class="price-card featured">
+
+<h3>Premium Design</h3>
+
+<div class="price">$15</div>
+
+<p>
+More detailed and polished creative
+design for brands and businesses.
+</p>
+
+<br>
+
+<a href="#contact" class="btn btn-primary">
+Choose Plan
+</a>
+
+</div>
+
+
+<div class="price-card">
+
+<h3>Website Creation</h3>
+
+<div class="price">$30+</div>
+
+<p>
+Modern responsive website creation
+for creators, brands and businesses.
+</p>
+
+<br>
+
+<a href="#contact" class="btn btn-outline">
+Choose Plan
+</a>
+
+</div>
+
+</div>
+</div>
 </section>
 
+
+<!-- TESTIMONIAL -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<small>Client Experience</small>
+
+<h2>What Clients <span style="color:#d6b36a">Say</span></h2>
+
+</div>
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Professional creativity, clean designs and attention
+to detail. Molescreativivity brings ideas to life.”
+</p>
+
+<br>
+
+<strong>Client Feedback</strong>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
-    <h2 class="section-title">
-        Let's <span>Work Together</span>
-    </h2>
+<div class="container">
 
-    <p>
-        Have a project in mind? Contact me and let's bring
-        your idea to life.
-    </p>
+<div class="section-heading">
 
-    <!-- Replace the number below with your WhatsApp number -->
-    <a class="btn"
-       href="https://wa.me/234XXXXXXXXXX"
-       target="_blank">
-       WhatsApp Me
-    </a>
+<small>Let's Create</small>
 
-    <!-- Replace the email below with your real email -->
-    <a class="btn btn-outline"
-       href="mailto:your@email.com">
-       Send Email
-    </a>
+<h2>Start Your <span style="color:#d6b36a">Project</span></h2>
 
-    <div class="socials">
-        <br>
-        <a href="#">Instagram</a>
-        <a href="#">X</a>
-        <a href="#">TikTok</a>
-    </div>
+<p>
+Tell us what you need and let's turn your idea
+into something people will remember.
+</p>
 
+</div>
+
+<div class="contact-box">
+
+<a
+href="https://wa.me/2349039286104?text=Hello%20Molescreativivity%2C%20I%20am%20interested%20in%20your%20creativity."
+target="_blank"
+class="btn btn-primary">
+
+Chat on WhatsApp
+
+</a>
+
+<a
+href="mailto:imoleoluwaagosile@gmail.com"
+class="btn btn-outline">
+
+Send Email
+
+</a>
+
+<form class="form"
+onsubmit="sendWhatsApp(event)">
+
+<input
+id="name"
+type="text"
+placeholder="Your Name"
+required>
+
+<input
+id="service"
+type="text"
+placeholder="What service do you need?"
+required>
+
+<textarea
+id="message"
+placeholder="Tell me about your project..."
+required></textarea>
+
+<button
+type="submit"
+class="btn btn-primary">
+
+Get a Quote
+
+</button>
+
+</form>
+
+</div>
+
+</div>
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-    <p>
-        © 2026 Moles Creativity. All Rights Reserved.
-    </p>
+<div class="container">
+
+<div class="footer-logo">
+Moles<span>creativivity</span>
+</div>
+
+<p>
+Moles Design • Graphic Design • Digital Marketing • Websites
+</p>
+
+<p>
+© 2026 Molescreativivity. All Rights Reserved.
+</p>
+
+</div>
 
 </footer>
+
+
+<script>
+
+function toggleMenu(){
+
+document
+.getElementById("navLinks")
+.classList.toggle("active");
+
+}
+
+function sendWhatsApp(event){
+
+event.preventDefault();
+
+let name =
+document.getElementById("name").value;
+
+let service =
+document.getElementById("service").value;
+
+let message =
+document.getElementById("message").value;
+
+let text =
+"Hello Molescreativivity, I am interested in your creativity.%0A%0A" +
+"Name: " + encodeURIComponent(name) +
+"%0AService: " + encodeURIComponent(service) +
+"%0AProject: " + encodeURIComponent(message);
+
+window.open(
+"https://wa.me/2349039286104?text=" + text,
+"_blank"
+);
+
+}
+
+</script>
 
 </body>
 </html>
