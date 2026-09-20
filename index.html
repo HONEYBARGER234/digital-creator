@@ -1,157 +1,432 @@
  <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Digital Creator | Moles</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Moles | Digital Creator</title>
 
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
             font-family: Arial, sans-serif;
-            background: #111;
+            background: #0b0b0b;
             color: white;
-            text-align: center;
+            line-height: 1.6;
         }
 
         header {
-            background: #1f1f1f;
-            padding: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10,10,10,0.95);
+            border-bottom: 1px solid #222;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 35px;
-        }
-
-        header p {
-            color: #aaa;
-        }
-
-        .hero {
-            padding: 70px 20px;
-        }
-
-        .hero h2 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .hero span {
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
             color: #00ff88;
         }
 
-        .hero p {
-            font-size: 18px;
-            color: #ccc;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 25px;
-            background: #00ff88;
-            color: #111;
+        nav a {
+            color: white;
             text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0b0b0b, #151515);
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 9vw, 80px);
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #00ff88;
+        }
+
+        .hero h2 {
+            color: #ccc;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            margin: 8px;
             border-radius: 8px;
+            text-decoration: none;
             font-weight: bold;
+            background: #00ff88;
+            color: #07130d;
+            transition: 0.3s;
         }
 
-        .services {
-            padding: 40px 20px;
-            background: #181818;
+        .btn:hover {
+            transform: translateY(-4px);
         }
 
-        .services h2 {
-            font-size: 30px;
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid #00ff88;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #00ff88;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #bbb;
+            font-size: 18px;
         }
 
         .cards {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
         }
 
         .card {
-            background: #252525;
-            width: 250px;
-            padding: 25px;
-            border-radius: 12px;
+            background: #171717;
+            border: 1px solid #292929;
+            border-radius: 15px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #00ff88;
         }
 
         .card h3 {
             color: #00ff88;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #aaa;
+        }
+
+        .portfolio-box {
+            background: #171717;
+            border: 1px dashed #444;
+            border-radius: 15px;
+            padding: 50px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .portfolio-box h3 {
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: white;
+        }
+
+        .contact {
+            text-align: center;
+            background: #111;
+        }
+
+        .contact p {
+            color: #aaa;
+            margin-bottom: 20px;
         }
 
         footer {
-            padding: 25px;
-            background: #0b0b0b;
-            color: #888;
+            text-align: center;
+            padding: 30px 15px;
+            background: #050505;
+            color: #777;
+        }
+
+        .socials a {
+            color: #00ff88;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 12px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>MOLES</h1>
-        <p>Digital Creator</p>
-    </header>
+<header>
+    <div class="logo">MOLES</div>
 
-    <section class="hero">
-        <h2>Welcome to <span>Moles</span></h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+<section class="hero" id="home">
+
+    <div>
+        <h1>MOLES <span>CREATIVITY</span></h1>
+
+        <h2>Digital Creator • Graphic Designer • Creative</h2>
 
         <p>
-            I create eye-catching graphics, digital content and creative designs
-            that help brands and businesses stand out online.
+            I create clean, attractive and memorable designs
+            that help businesses and personal brands stand out online.
         </p>
 
-        <a href="#services" class="button">View My Services</a>
-    </section>
+        <div class="buttons">
+            <a class="btn" href="#portfolio">View My Work</a>
 
-    <section class="services" id="services">
-        <h2>My Services</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Graphic Design</h3>
-                <p>
-                    Flyers, banners, logos, social media designs and more.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Social Media</h3>
-                <p>
-                    Creative content and management ideas for social media pages.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Digital Marketing</h3>
-                <p>
-                    Creative strategies to help businesses reach more customers.
-                </p>
-            </div>
-
+            <a class="btn btn-outline" href="#contact">
+                Hire Me
+            </a>
         </div>
-    </section>
+    </div>
 
-    <section class="hero">
-        <h2>Let's Work Together</h2>
+</section>
+
+
+<section id="about">
+
+    <h2 class="section-title">
+        About <span>Me</span>
+    </h2>
+
+    <div class="about">
 
         <p>
-            Have a project? Let's turn your idea into something people will notice.
+            I'm Moles, a digital creator and graphic designer.
+            I enjoy turning ideas into visual designs that look
+            professional, modern and engaging.
         </p>
 
-        <a href="mailto:your@email.com" class="button">Contact Me</a>
-    </section>
+        <br>
 
-    <footer>
-        © 2026 Moles Digital Creator. All Rights Reserved.
-    </footer>
+        <p>
+            Whether you need a flyer, social media design,
+            banner or other creative content, I'm available
+            to work with you.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="services">
+
+    <h2 class="section-title">
+        My <span>Services</span>
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Graphic Design</h3>
+            <p>
+                Flyers, banners, posters, logos and other
+                creative designs.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Social Media Design</h3>
+            <p>
+                Eye-catching content for Instagram,
+                Facebook, X and other platforms.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Digital Marketing</h3>
+            <p>
+                Creative digital content that helps brands
+                attract and communicate with customers.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="portfolio">
+
+    <h2 class="section-title">
+        My <span>Portfolio</span>
+    </h2>
+
+    <div class="portfolio-box">
+
+        <h3>Your Designs Go Here</h3>
+
+        <p>
+            This section will contain your actual design
+            projects and previous work.
+        </p>
+
+        <a class="btn" href="#contact">
+            Request a Design
+        </a>
+
+    </div>
+
+</section>
+
+
+<section id="services">
+
+    <h2 class="section-title">
+        Simple <span>Pricing</span>
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Basic Design</h3>
+            <div class="price">₦2,000</div>
+            <p>Simple creative design.</p>
+        </div>
+
+        <div class="card">
+            <h3>Standard Design</h3>
+            <div class="price">₦3,000</div>
+            <p>More detailed and polished design.</p>
+        </div>
+
+        <div class="card">
+            <h3>Custom Project</h3>
+            <div class="price">Let's Talk</div>
+            <p>Large or special projects.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+    <h2 class="section-title">
+        Let's <span>Work Together</span>
+    </h2>
+
+    <p>
+        Have a project in mind? Contact me and let's bring
+        your idea to life.
+    </p>
+
+    <!-- Replace the number below with your WhatsApp number -->
+    <a class="btn"
+       href="https://wa.me/234XXXXXXXXXX"
+       target="_blank">
+       WhatsApp Me
+    </a>
+
+    <!-- Replace the email below with your real email -->
+    <a class="btn btn-outline"
+       href="mailto:your@email.com">
+       Send Email
+    </a>
+
+    <div class="socials">
+        <br>
+        <a href="#">Instagram</a>
+        <a href="#">X</a>
+        <a href="#">TikTok</a>
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Moles Creativity. All Rights Reserved.
+    </p>
+
+</footer>
 
 </body>
 </html>
