@@ -1,926 +1,243 @@
-<head>
-<meta name="google-site-verification" content="tzcCIu6xw19URikSWsKw0PKESGLEslkkf1e-7ZT3mBM" />
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Molescreativivity | Graphic Design, Websites & Digital Marketing</title>
-
-<meta name="description" content="Molescreativivity offers professional graphic design, website creation, digital marketing and social media management for businesses, brands and creators.">
- 
-<style>
-:root{
-  --bg:#070707;
-  --card:#111;
-  --card2:#161616;
-  --text:#f5f5f5;
-  --muted:#aaa;
-  --gold:#d6b36a;
-  --gold2:#f1d18b;
-  --border:#282828;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-.container{
-  width:90%;
-  max-width:1150px;
-  margin:auto;
-}
-
-/* NAVBAR */
-
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:1000;
-  background:rgba(7,7,7,.94);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-}
-
-.navbar{
-  height:75px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  font-size:22px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-
-.logo span{
-  color:var(--gold);
-}
-
-.nav-links{
-  display:flex;
-  gap:28px;
-  list-style:none;
-}
-
-.nav-links a{
-  color:#ddd;
-  transition:.3s;
-}
-
-.nav-links a:hover{
-  color:var(--gold);
-}
-
-.menu{
-  display:none;
-  font-size:28px;
-  cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding-top:75px;
-  background:
-    radial-gradient(circle at 80% 30%,rgba(214,179,106,.12),transparent 30%),
-    var(--bg);
-}
-
-.hero-content{
-  max-width:800px;
-}
-
-.badge{
-  display:inline-block;
-  border:1px solid var(--gold);
-  color:var(--gold2);
-  padding:7px 15px;
-  border-radius:30px;
-  font-size:13px;
-  margin-bottom:25px;
-}
-
-.hero h1{
-  font-size:clamp(45px,8vw,82px);
-  line-height:1.02;
-  margin-bottom:25px;
-}
-
-.hero h1 span{
-  color:var(--gold);
-}
-
-.hero p{
-  color:var(--muted);
-  font-size:19px;
-  max-width:650px;
-  margin-bottom:35px;
-}
-
-.buttons{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-block;
-  padding:14px 25px;
-  border-radius:8px;
-  font-weight:bold;
-  transition:.3s;
-}
-
-.btn-primary{
-  background:var(--gold);
-  color:#090909;
-}
-
-.btn-primary:hover{
-  transform:translateY(-3px);
-  background:var(--gold2);
-}
-
-.btn-outline{
-  border:1px solid var(--border);
-  background:var(--card);
-}
-
-.btn-outline:hover{
-  border-color:var(--gold);
-  color:var(--gold);
-}
-
-/* GENERAL */
-
-section{
-  padding:100px 0;
-}
-
-.section-title{
-  margin-bottom:45px;
-}
-
-.section-title small{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:3px;
-}
-
-.section-title h2{
-  font-size:42px;
-  margin-top:8px;
-}
-
-.section-title p{
-  color:var(--muted);
-  max-width:650px;
-}
-
-/* ABOUT */
-
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-}
-
-.about-box{
-  background:var(--card);
-  border:1px solid var(--border);
-  padding:40px;
-  border-radius:18px;
-}
-
-.about-box h3{
-  font-size:35px;
-  margin-bottom:15px;
-}
-
-.about-box p{
-  color:var(--muted);
-}
-
-/* SERVICES */
-
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.service{
-  background:var(--card);
-  border:1px solid var(--border);
-  padding:30px;
-  border-radius:15px;
-  transition:.3s;
-}
-
-.service:hover{
-  transform:translateY(-8px);
-  border-color:var(--gold);
-}
-
-.service-icon{
-  font-size:35px;
-  margin-bottom:15px;
-}
-
-.service h3{
-  margin-bottom:10px;
-}
-
-.service p{
-  color:var(--muted);
-  font-size:14px;
-}
-
-/* PORTFOLIO */
-
-.portfolio-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.project{
-  min-height:230px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:28px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  background:
-    linear-gradient(145deg,#1b1b1b,#0d0d0d);
-  transition:.3s;
-}
-
-.project:hover{
-  transform:translateY(-6px);
-  border-color:var(--gold);
-}
-
-.project small{
-  color:var(--gold);
-}
-
-.project h3{
-  margin-top:5px;
-}
-
-/* PRICING */
-
-.pricing-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.price-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  padding:35px;
-  border-radius:18px;
-}
-
-.price-card.featured{
-  border-color:var(--gold);
-}
-
-.price-card h3{
-  font-size:22px;
-}
-
-.price{
-  font-size:40px;
-  font-weight:bold;
-  margin:15px 0;
-}
-
-.price-card p{
-  color:var(--muted);
-  margin-bottom:25px;
-}
-
-.features{
-  list-style:none;
-  margin-bottom:25px;
-}
-
-.features li{
-  margin:10px 0;
-  color:#ddd;
-}
-
-/* PROCESS */
-
-.process-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.process{
-  border-left:2px solid var(--gold);
-  padding:20px;
-  background:var(--card);
-}
-
-.process span{
-  color:var(--gold);
-  font-weight:bold;
-}
-
-/* CONTACT */
-
-.contact-box{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:50px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-}
-
-.contact-info p{
-  color:var(--muted);
-  margin:15px 0 25px;
-}
-
-.contact-item{
-  margin:15px 0;
-}
-
-.contact-item strong{
-  display:block;
-  color:var(--gold);
-}
-
-form{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:14px;
-  background:#090909;
-  color:white;
-  border:1px solid var(--border);
-  border-radius:8px;
-  outline:none;
-}
-
-input:focus,select:focus,textarea:focus{
-  border-color:var(--gold);
-}
-
-textarea{
-  min-height:130px;
-  resize:vertical;
-}
-
-/* FOOTER */
-
-footer{
-  border-top:1px solid var(--border);
-  padding:30px 0;
-  text-align:center;
-  color:var(--muted);
-}
-
-footer span{
-  color:var(--gold);
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-  .nav-links{
-    position:absolute;
-    top:75px;
-    left:0;
-    width:100%;
-    background:#080808;
-    flex-direction:column;
-    align-items:center;
-    padding:25px;
-    display:none;
-  }
-
-  .nav-links.active{
-    display:flex;
-  }
-
-  .menu{
-    display:block;
-  }
-
-  .services-grid,
-  .process-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .portfolio-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .pricing-grid{
-    grid-template-columns:1fr;
-  }
-
-  .about-grid,
-  .contact-box{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:550px){
-
-  section{
-    padding:75px 0;
-  }
-
-  .hero h1{
-    font-size:48px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .services-grid,
-  .portfolio-grid,
-  .process-grid{
-    grid-template-columns:1fr;
-  }
-
-  .contact-box{
-    padding:30px 20px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Digital Creator | @movies edits</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #080808;
+      color: white;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: #0d0d0d;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #ff3c00;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 8%;
+      background:
+        radial-gradient(circle at top right, #3b1205, transparent 40%),
+        #080808;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #ff3c00;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #bdbdbd;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff3c00;
+      color: white;
+      padding: 14px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .title {
+      font-size: 35px;
+      margin-bottom: 35px;
+    }
+
+    .title span {
+      color: #ff3c00;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #121212;
+      border: 1px solid #222;
+      padding: 30px;
+      border-radius: 18px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #ff3c00;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #aaa;
+    }
+
+    .contact {
+      text-align: center;
+      background: #101010;
+    }
+
+    .contact p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+      background: #050505;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 18px 5%;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 14px;
+      }
+
+      .hero,
+      section {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-
-<nav>
-<div class="container navbar">
-
-<a href="#home" class="logo">MOLES<span>CREATIVIVITY</span></a>
-
-<ul class="nav-links" id="navLinks">
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#portfolio">Portfolio</a></li>
-<li><a href="#pricing">Pricing</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-<div class="menu" onclick="toggleMenu()">☰</div>
-
-</div>
-</nav>
-
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-<div class="container hero-content">
-
-<div class="badge">CREATIVE DIGITAL STUDIO</div>
-
-<h1>
-I Create Designs & Websites That Make Businesses <span>Stand Out.</span>
-</h1>
-
-<p>
-Molescreativivity helps businesses and personal brands look professional
-through graphic design, digital marketing, social media management and
-modern websites.
-</p>
-
-<div class="buttons">
-
-<a class="btn btn-primary"
-href="https://wa.me/2349039286104?text=Hello%20Molescreativivity%2C%20I%20am%20interested%20in%20your%20creativity."
-target="_blank">
-GET A QUOTE
-</a>
-
-<a class="btn btn-outline" href="#portfolio">
-VIEW MY WORK
-</a>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-<div class="container">
-
-<div class="section-title">
-<small>About</small>
-<h2>Meet Moles Design.</h2>
-</div>
-
-<div class="about-grid">
-
-<div>
-<p>
-Molescreativivity is a creative digital brand focused on helping
-businesses, creators and personal brands present themselves professionally
-online.
-</p>
-
-<br>
-
-<p>
-From eye-catching graphics to modern websites and digital marketing,
-the goal is simple: create work that looks professional and communicates
-clearly.
-</p>
-</div>
-
-<div class="about-box">
-<h3>Design.<br>Digital.<br>Websites.</h3>
-<p>
-Creative solutions built for modern brands.
-</p>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- SERVICES -->
-
-<section id="services">
-<div class="container">
-
-<div class="section-title">
-<small>What I Do</small>
-<h2>Services</h2>
-<p>
-Everything you need to build a stronger and more professional digital presence.
-</p>
-</div>
-
-<div class="services-grid">
-
-<div class="service">
-<div class="service-icon">🎨</div>
-<h3>Graphic Design</h3>
-<p>Flyers, logos, branding, social media graphics and promotional designs.</p>
-</div>
-
-<div class="service">
-<div class="service-icon">📱</div>
-<h3>Social Media</h3>
-<p>Professional content and social media management for growing brands.</p>
-</div>
-
-<div class="service">
-<div class="service-icon">📈</div>
-<h3>Digital Marketing</h3>
-<p>Creative digital strategies designed to help businesses reach customers.</p>
-</div>
-
-<div class="service">
-<div class="service-icon">🌐</div>
-<h3>Website Creation</h3>
-<p>Modern responsive websites designed for businesses, brands and creators.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- PORTFOLIO -->
-
-<section id="portfolio">
-<div class="container">
-
-<div class="section-title">
-<small>Selected Work</small>
-<h2>Portfolio</h2>
-<p>
-A selection of creative projects and concepts. More real client work will
-be added as the studio grows.
-</p>
-</div>
-
-<div class="portfolio-grid">
-
-<div class="project">
-<small>BRANDING</small>
-<h3>Luxury Brand Identity</h3>
-</div>
-
-<div class="project">
-<small>SOCIAL MEDIA</small>
-<h3>Social Campaign</h3>
-</div>
-
-<div class="project">
-<small>GRAPHIC DESIGN</small>
-<h3>Creative Flyer</h3>
-</div>
-
-<div class="project">
-<small>WEB DESIGN</small>
-<h3>Business Website</h3>
-</div>
-
-<div class="project">
-<small>MARKETING</small>
-<h3>Marketing Campaign</h3>
-</div>
-
-<div class="project">
-<small>PERSONAL BRAND</small>
-<h3>Creator Branding</h3>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- PRICING -->
-
-<section id="pricing">
-<div class="container">
-
-<div class="section-title">
-<small>Investment</small>
-<h2>Simple Pricing</h2>
-<p>
-Choose a service or contact me for a custom project.
-</p>
-</div>
-
-<div class="pricing-grid">
-
-<div class="price-card">
-
-<h3>Starter Design</h3>
-
-<div class="price">$10</div>
-
-<p>Perfect for a simple creative design.</p>
-
-<ul class="features">
-<li>✓ 1 Design</li>
-<li>✓ Professional Layout</li>
-<li>✓ High Quality Delivery</li>
-</ul>
-
-<a class="btn btn-outline"
-href="https://wa.me/2349039286104?text=Hello%20Molescreativivity%2C%20I%20am%20interested%20in%20your%20creativity."
-target="_blank">
-GET STARTED
-</a>
-
-</div>
-
-
-<div class="price-card featured">
-
-<h3>Premium Design</h3>
-
-<div class="price">$15</div>
-
-<p>For brands that want something more polished.</p>
-
-<ul class="features">
-<li>✓ Premium Design</li>
-<li>✓ Professional Layout</li>
-<li>✓ Revisions</li>
-<li>✓ High Quality Delivery</li>
-</ul>
-
-<a class="btn btn-primary"
-href="https://wa.me/2349039286104?text=Hello%20Molescreativivity%2C%20I%20am%20interested%20in%20your%20creativity."
-target="_blank">
-GET STARTED
-</a>
-
-</div>
-
-
-<div class="price-card">
-
-<h3>Website Creation</h3>
-
-<div class="price">$30+</div>
-
-<p>Professional responsive websites for brands and businesses.</p>
-
-<ul class="features">
-<li>✓ Mobile Responsive</li>
-<li>✓ Professional Design</li>
-<li>✓ Contact Integration</li>
-<li>✓ Deployment Support</li>
-</ul>
-
-<a class="btn btn-outline"
-href="https://wa.me/2349039286104?text=Hello%20Molescreativivity%2C%20I%20am%20interested%20in%20your%20creativity."
-target="_blank">
-GET STARTED
-</a>
-
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- PROCESS -->
-
-<section>
-<div class="container">
-
-<div class="section-title">
-<small>How It Works</small>
-<h2>Simple Process.</h2>
-</div>
-
-<div class="process-grid">
-
-<div class="process">
-<span>01</span>
-<h3>Brief</h3>
-<p>Tell me what you need.</p>
-</div>
-
-<div class="process">
-<span>02</span>
-<h3>Create</h3>
-<p>I work on your project.</p>
-</div>
-
-<div class="process">
-<span>03</span>
-<h3>Review</h3>
-<p>You review the work and request revisions if needed.</p>
-</div>
-
-<div class="process">
-<span>04</span>
-<h3>Deliver</h3>
-<p>Your final project is delivered.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-<div class="container">
-
-<div class="contact-box">
-
-<div class="contact-info">
-
-<div class="section-title">
-<small>Let's Work</small>
-<h2>Have a project?</h2>
-</div>
-
-<p>
-Tell me what you need and let's turn your idea into something professional.
-</p>
-
-<div class="contact-item">
-<strong>WhatsApp</strong>
-<a href="https://wa.me/2349039286104" target="_blank">
-Chat with Molescreativivity
-</a>
-</div>
-
-<div class="contact-item">
-<strong>Email</strong>
-<a href="mailto:imoleoluwaagosile@gmail.com">
-imoleoluwaagosile@gmail.com
-</a>
-</div>
-
-</div>
-
-
-<form onsubmit="sendToWhatsApp(event)">
-
-<input id="name" type="text" placeholder="Your name" required>
-
-<select id="service" required>
-<option value="">Choose a service</option>
-<option>Graphic Design</option>
-<option>Social Media Management</option>
-<option>Digital Marketing</option>
-<option>Website Creation</option>
-</select>
-
-<input id="budget" type="text" placeholder="Your budget">
-
-<textarea id="project" placeholder="Tell me about your project..." required></textarea>
-
-<button class="btn btn-primary" type="submit">
-SEND PROJECT REQUEST
-</button>
-
-</form>
-
-</div>
-</div>
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-<div class="container">
-<p>© 2026 <span>Molescreativivity</span>. All rights reserved.</p>
-</div>
-</footer>
-
-
-<script>
-
-function toggleMenu(){
-
-document.getElementById("navLinks").classList.toggle("active");
-
-}
-
-function sendToWhatsApp(event){
-
-event.preventDefault();
-
-let name = document.getElementById("name").value;
-let service = document.getElementById("service").value;
-let budget = document.getElementById("budget").value;
-let project = document.getElementById("project").value;
-
-let message =
-"Hello Molescreativivity, I am interested in your creativity.%0A%0A" +
-"Name: " + encodeURIComponent(name) +
-"%0AService: " + encodeURIComponent(service) +
-"%0ABudget: " + encodeURIComponent(budget) +
-"%0AProject: " + encodeURIComponent(project);
-
-window.open(
-"https://wa.me/2349039286104?text=" + message,
-"_blank"
-);
-
-}
-
-</script>
+  <nav>
+    <div class="logo">DIGITAL<span>CREATOR</span></div>
+
+    <div>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1>Create.<br><span>Edit.</span><br>Impact.</h1>
+
+      <p>
+        Welcome to my creative space. I create movie edits,
+        graphics and digital experiences designed to stand out.
+      </p>
+
+      <a href="#work" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2 class="title">My <span>Work</span></h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🎬 Movie Edits</h3>
+        <p>
+          Cinematic movie edits, short-form videos and creative
+          visual content.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎨 Graphic Design</h3>
+        <p>
+          Flyers, banners, logos and social media designs
+          created for brands and individuals.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>💻 Web Projects</h3>
+        <p>
+          Simple, modern websites and digital projects
+          built for creators and businesses.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📱 Social Content</h3>
+        <p>
+          Creative content designed to help pages attract
+          attention and grow.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="title">Let's <span>Work Together</span></h2>
+
+    <p>
+      Have a project in mind? Let's create something great.
+    </p>
+
+    <a href="mailto:your@email.com" class="btn">
+      Contact Me
+    </a>
+  </section>
+
+  <footer>
+    © 2026 Digital Creator • @movies edits
+  </footer>
 
 </body>
 </html>
