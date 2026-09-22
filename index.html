@@ -4,142 +4,148 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Moles Creativivity | Digital Design & Web Solutions</title>
-
-  <meta name="description" content="Moles Creativivity creates modern websites, graphics and digital experiences for brands and businesses.">
+  <title>CiPasso — Digital Solutions</title>
+  <meta name="description" content="CiPasso creates modern websites, graphics and digital solutions for businesses.">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    html {
       scroll-behavior: smooth;
     }
 
+    :root {
+      --brown: #5b321f;
+      --dark: #24150f;
+      --cream: #f8f0e5;
+      --light: #fffaf4;
+      --gold: #c49a6c;
+      --text: #33241d;
+      --muted: #76675e;
+      --white: #ffffff;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #080808;
-      color: #ffffff;
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: var(--text);
       line-height: 1.6;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
+    button {
+      border: none;
+      cursor: pointer;
     }
 
     /* NAVBAR */
-    nav {
-      position: sticky;
+
+    header {
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
-      background: rgba(8, 8, 8, 0.9);
+      background: rgba(255,250,244,.94);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid #222;
+      border-bottom: 1px solid #eaded2;
     }
 
-    .nav-inner {
-      height: 75px;
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 25px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: 800;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--brown);
       letter-spacing: -1px;
     }
 
     .logo span {
-      color: #b87935;
+      color: var(--gold);
     }
 
     .nav-links {
       display: flex;
       gap: 28px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
-      color: #bbb;
-      font-size: 14px;
-      transition: 0.3s;
+      font-weight: 600;
+      color: var(--text);
+      transition: .3s;
     }
 
     .nav-links a:hover {
-      color: #b87935;
+      color: var(--gold);
     }
 
-    .nav-btn {
-      background: #b87935;
-      padding: 11px 18px;
-      border-radius: 8px;
-      color: white !important;
-      font-weight: bold;
+    .menu {
+      display: none;
+      font-size: 28px;
+      background: none;
+      color: var(--brown);
     }
 
     /* HERO */
+
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
+      padding: 150px 25px 80px;
       display: flex;
       align-items: center;
-      position: relative;
-      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 20%, #ead2b8 0%, transparent 30%),
+        linear-gradient(135deg, #fffaf4, #f5e9da);
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: #b87935;
-      opacity: 0.08;
-      border-radius: 50%;
-      filter: blur(100px);
-      top: 10%;
-      right: -150px;
-    }
-
-    .hero-content {
-      max-width: 850px;
-      position: relative;
-      z-index: 2;
+    .hero-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 60px;
+      align-items: center;
     }
 
     .badge {
       display: inline-block;
-      border: 1px solid #333;
-      color: #b87935;
-      padding: 7px 14px;
-      border-radius: 30px;
-      font-size: 13px;
-      margin-bottom: 25px;
+      padding: 9px 15px;
+      border-radius: 50px;
+      background: #ead9c7;
+      color: var(--brown);
+      font-weight: 700;
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(48px, 8vw, 92px);
-      line-height: 0.98;
-      letter-spacing: -4px;
+      font-size: clamp(45px, 7vw, 78px);
+      line-height: .98;
+      color: var(--dark);
       margin-bottom: 25px;
     }
 
     .hero h1 span {
-      color: #b87935;
+      color: var(--brown);
     }
 
     .hero p {
-      max-width: 650px;
-      color: #aaa;
+      max-width: 600px;
+      color: var(--muted);
       font-size: 18px;
       margin-bottom: 35px;
     }
@@ -151,225 +157,427 @@
     }
 
     .btn {
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-weight: 800;
+      transition: .3s;
       display: inline-block;
-      padding: 14px 23px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
     }
 
     .btn-primary {
-      background: #b87935;
+      background: var(--brown);
+      color: white;
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      opacity: 0.9;
+      background: var(--dark);
     }
 
-    .btn-outline {
-      border: 1px solid #444;
-      color: #ddd;
+    .btn-secondary {
+      border: 2px solid var(--brown);
+      color: var(--brown);
     }
 
-    .btn-outline:hover {
-      border-color: #b87935;
-      color: #b87935;
+    .btn-secondary:hover {
+      background: var(--brown);
+      color: white;
     }
 
-    /* SECTIONS */
+    .hero-card {
+      background: var(--brown);
+      color: white;
+      min-height: 430px;
+      border-radius: 35px;
+      padding: 35px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(91,50,31,.25);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      right: -80px;
+      top: -70px;
+    }
+
+    .hero-card h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .hero-card p {
+      color: #eaded5;
+    }
+
+    .stat-box {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 10px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,.1);
+      padding: 18px 10px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+    }
+
+    /* GENERAL */
+
     section {
-      padding: 100px 0;
+      padding: 100px 25px;
     }
 
-    .section-label {
-      color: #b87935;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+    .container {
+      max-width: 1200px;
+      margin: auto;
     }
 
     .section-title {
-      font-size: clamp(35px, 5vw, 55px);
-      line-height: 1.05;
-      margin-bottom: 45px;
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px,5vw,50px);
+      color: var(--dark);
+      margin: 8px 0;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
     }
 
     /* SERVICES */
-    .services-grid {
+
+    .services {
+      background: white;
+    }
+
+    .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
     }
 
-    .card {
-      background: #101010;
-      border: 1px solid #222;
-      padding: 30px;
-      border-radius: 15px;
-      transition: 0.3s;
+    .service-card {
+      padding: 35px;
+      border: 1px solid #eaded2;
+      border-radius: 22px;
+      background: #fffaf6;
+      transition: .3s;
     }
 
-    .card:hover {
-      transform: translateY(-7px);
-      border-color: #b87935;
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(60,35,20,.1);
     }
 
-    .card-number {
-      color: #b87935;
-      font-size: 13px;
-      margin-bottom: 40px;
+    .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: #ead9c7;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      margin-bottom: 20px;
     }
 
-    .card h3 {
-      font-size: 24px;
-      margin-bottom: 12px;
+    .service-card h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
     }
 
-    .card p {
-      color: #999;
-      font-size: 15px;
+    .service-card p {
+      color: var(--muted);
     }
 
     /* PORTFOLIO */
+
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
     }
 
     .project {
-      min-height: 300px;
-      background: linear-gradient(135deg, #171717, #0c0c0c);
-      border: 1px solid #222;
-      border-radius: 15px;
-      padding: 30px;
+      height: 280px;
+      border-radius: 25px;
+      padding: 25px;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      transition: 0.3s;
+      align-items: end;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg,#5b321f,#c49a6c);
+      color: white;
     }
 
-    .project:hover {
-      transform: scale(1.01);
-      border-color: #b87935;
+    .project:nth-child(2) {
+      background: linear-gradient(135deg,#2f211b,#8c6549);
     }
 
-    .project small {
-      color: #b87935;
-      margin-bottom: 8px;
+    .project:nth-child(3) {
+      background: linear-gradient(135deg,#7b5237,#e0bd96);
+    }
+
+    .project div {
+      position: relative;
+      z-index: 2;
     }
 
     .project h3 {
-      font-size: 28px;
+      font-size: 25px;
+    }
+
+    /* PRICING */
+
+    .pricing {
+      background: #f5e9da;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
+    }
+
+    .price-card {
+      background: white;
+      padding: 35px;
+      border-radius: 25px;
+      border: 1px solid #e5d5c4;
+    }
+
+    .price-card.featured {
+      background: var(--brown);
+      color: white;
+      transform: translateY(-12px);
+    }
+
+    .price {
+      font-size: 38px;
+      font-weight: 900;
+      margin: 20px 0;
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin: 25px 0;
+    }
+
+    .price-card li {
+      margin: 12px 0;
     }
 
     /* ABOUT */
-    .about {
+
+    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
     }
 
-    .about-text p {
-      color: #aaa;
-      margin-bottom: 20px;
-      font-size: 17px;
-    }
-
-    .stats {
+    .about-box {
+      background: var(--brown);
+      min-height: 400px;
+      border-radius: 30px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
+      place-items: center;
+      color: white;
+      font-size: 80px;
     }
 
-    .stat {
-      background: #101010;
-      border: 1px solid #222;
-      padding: 25px;
-      border-radius: 12px;
-    }
-
-    .stat strong {
-      display: block;
-      color: #b87935;
-      font-size: 35px;
-    }
-
-    .stat span {
-      color: #999;
-      font-size: 13px;
-    }
-
-    /* CTA */
-    .cta {
-      background: #b87935;
-      color: #080808;
-      padding: 70px;
-      border-radius: 20px;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: clamp(35px, 5vw, 60px);
-      line-height: 1;
+    .about-text h2 {
+      font-size: 45px;
+      color: var(--dark);
       margin-bottom: 20px;
     }
 
-    .cta p {
-      max-width: 600px;
-      margin: 0 auto 30px;
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
     }
 
-    .cta .btn {
-      background: #080808;
+    /* TESTIMONIALS */
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid #eaded2;
+    }
+
+    .stars {
+      color: #c49a6c;
+      margin-bottom: 15px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: var(--dark);
       color: white;
     }
 
-    /* FOOTER */
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid #222;
-      color: #777;
-      font-size: 14px;
+    .contact .section-title h2,
+    .contact .section-title p {
+      color: white;
     }
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact-info {
+      padding: 30px;
+    }
+
+    .contact-item {
+      margin: 25px 0;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--gold);
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 25px;
+      color: var(--text);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd0c5;
+      border-radius: 10px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #160d09;
+      color: #d7c9bf;
+      padding: 30px 25px;
+      text-align: center;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      z-index: 2000;
+      box-shadow: 0 10px 25px rgba(0,0,0,.2);
     }
 
     /* MOBILE */
-    @media (max-width: 800px) {
+
+    @media(max-width:850px) {
+
+      .menu {
+        display: block;
+      }
+
       .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--light);
+        flex-direction: column;
+        padding: 25px;
         display: none;
       }
 
-      .hero {
-        min-height: 80vh;
+      .nav-links.active {
+        display: flex;
       }
 
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .services-grid,
-      .portfolio-grid,
-      .about {
+      .hero-container,
+      .about-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .stats {
-        grid-template-columns: 1fr 1fr;
+      .service-grid,
+      .portfolio-grid,
+      .pricing-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
       }
 
-      .cta {
-        padding: 45px 25px;
+      .price-card.featured {
+        transform: none;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero-card {
+        min-height: 350px;
+      }
+
+      .stat-box {
+        grid-template-columns: repeat(3,1fr);
       }
     }
   </style>
@@ -377,216 +585,447 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+<header>
   <nav>
-    <div class="container nav-inner">
-      <a href="#" class="logo">MOLES<span>.</span></a>
+    <a href="#" class="logo">Ci<span>Passo</span></a>
 
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
+    <button class="menu" onclick="toggleMenu()">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-container">
+
+    <div>
+      <span class="badge">🚀 Digital Solutions</span>
+
+      <h1>
+        We build digital
+        <span>experiences</span>
+        that stand out.
+      </h1>
+
+      <p>
+        CiPasso helps businesses and individuals build a stronger
+        digital presence through modern websites, graphics,
+        branding and digital solutions.
+      </p>
+
+      <div class="buttons">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="#contact" class="btn btn-secondary">Start a Project</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h2>Your idea. Our creativity.</h2>
+
+      <p>
+        From a simple idea to a complete digital experience,
+        CiPasso helps turn your vision into something people
+        can see, use and remember.
+      </p>
+
+      <div class="stat-box">
+        <div class="stat">
+          <strong>10+</strong>
+          Projects
+        </div>
+
+        <div class="stat">
+          <strong>24/7</strong>
+          Support
+        </div>
+
+        <div class="stat">
+          <strong>100%</strong>
+          Focus
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="services" id="services">
+
+  <div class="section-title">
+    <span>WHAT WE DO</span>
+    <h2>Our Services</h2>
+    <p>
+      Everything you need to build and grow your digital presence.
+    </p>
+  </div>
+
+  <div class="container service-grid">
+
+    <div class="service-card">
+      <div class="icon">💻</div>
+      <h3>Website Development</h3>
+      <p>
+        Modern, responsive websites designed for businesses,
+        personal brands and organizations.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🎨</div>
+      <h3>Graphic Design</h3>
+      <p>
+        Flyers, posters, social media designs, banners,
+        business materials and more.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">📱</div>
+      <h3>Social Media</h3>
+      <p>
+        Creative social media content and digital strategies
+        to help your brand stay visible.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">✨</div>
+      <h3>Branding</h3>
+      <p>
+        Build a recognizable identity with professional
+        visual branding.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🛒</div>
+      <h3>Online Stores</h3>
+      <p>
+        Product-focused websites that allow customers to
+        discover and order your products.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">⚡</div>
+      <h3>Digital Solutions</h3>
+      <p>
+        Custom digital solutions designed around your
+        business needs.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="portfolio">
+
+  <div class="section-title">
+    <span>OUR WORK</span>
+    <h2>Featured Projects</h2>
+    <p>
+      A preview of the kind of digital experiences we create.
+    </p>
+  </div>
+
+  <div class="container portfolio-grid">
+
+    <div class="project">
+      <div>
+        <h3>Business Website</h3>
+        <p>Modern responsive design</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div>
+        <h3>Brand Identity</h3>
+        <p>Creative visual system</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div>
+        <h3>Online Store</h3>
+        <p>Digital shopping experience</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+
+  <div class="section-title">
+    <span>SIMPLE PRICING</span>
+    <h2>Choose Your Package</h2>
+    <p>
+      Packages can be customized according to your project.
+    </p>
+  </div>
+
+  <div class="container pricing-grid">
+
+    <div class="price-card">
+      <h3>Starter</h3>
+      <div class="price">₦50k</div>
+
+      <ul>
+        <li>✓ Basic website</li>
+        <li>✓ Mobile responsive</li>
+        <li>✓ Contact section</li>
+        <li>✓ WhatsApp button</li>
       </ul>
 
-      <a href="#contact" class="nav-btn">Let's Talk</a>
+      <a href="#contact" class="btn btn-secondary">Choose Plan</a>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-content">
+    <div class="price-card featured">
+      <h3>Professional</h3>
+      <div class="price">₦100k</div>
 
-        <div class="badge">DIGITAL CREATIVE STUDIO</div>
+      <ul>
+        <li>✓ Multi-section website</li>
+        <li>✓ Modern animations</li>
+        <li>✓ Contact & booking</li>
+        <li>✓ WhatsApp integration</li>
+        <li>✓ Payment integration</li>
+      </ul>
 
-        <h1>
-          We build brands<br>
-          that <span>stand out.</span>
-        </h1>
+      <a href="#contact" class="btn btn-secondary">Choose Plan</a>
+    </div>
 
-        <p>
-          Moles Creativivity helps businesses look professional online
-          through modern websites, graphic design and digital solutions.
-        </p>
+    <div class="price-card">
+      <h3>Business</h3>
+      <div class="price">Custom</div>
 
-        <div class="buttons">
-          <a href="#work" class="btn btn-primary">View Our Work</a>
-          <a href="#contact" class="btn btn-outline">Start a Project</a>
-        </div>
+      <ul>
+        <li>✓ Full business website</li>
+        <li>✓ Online store</li>
+        <li>✓ Advanced features</li>
+        <li>✓ Custom integrations</li>
+      </ul>
 
+      <a href="#contact" class="btn btn-secondary">Contact Us</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+
+  <div class="container about-grid">
+
+    <div class="about-box">
+      CP
+    </div>
+
+    <div class="about-text">
+      <span>ABOUT CIPASSO</span>
+
+      <h2>Ideas deserve a digital home.</h2>
+
+      <p>
+        CiPasso is a digital creative brand focused on helping
+        people and businesses present themselves professionally
+        online.
+      </p>
+
+      <p>
+        We combine creativity, design and technology to create
+        digital experiences that are simple, modern and useful.
+      </p>
+
+      <a href="#contact" class="btn btn-primary">
+        Work With Us
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section>
+
+  <div class="section-title">
+    <span>CLIENT LOVE</span>
+    <h2>What People Say</h2>
+  </div>
+
+  <div class="container testimonial-grid">
+
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>
+        "The design came out clean and professional. Exactly
+        what I wanted."
+      </p>
+      <br>
+      <strong>— Client</strong>
+    </div>
+
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>
+        "Very easy to work with and the final result looked
+        really good."
+      </p>
+      <br>
+      <strong>— Client</strong>
+    </div>
+
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>
+        "My business now has a proper online presence."
+      </p>
+      <br>
+      <strong>— Client</strong>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+
+  <div class="section-title">
+    <span>GET IN TOUCH</span>
+    <h2>Let's Build Something</h2>
+    <p>
+      Tell us what you need and we'll get back to you.
+    </p>
+  </div>
+
+  <div class="container contact-grid">
+
+    <div class="contact-info">
+
+      <div class="contact-item">
+        <strong>📱 WhatsApp</strong>
+        <p>Chat with us directly</p>
       </div>
-    </div>
-  </header>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-
-      <div class="section-label">What we do</div>
-
-      <h2 class="section-title">
-        Creative solutions<br>
-        for modern businesses.
-      </h2>
-
-      <div class="services-grid">
-
-        <div class="card">
-          <div class="card-number">01 / WEB</div>
-          <h3>Web Design</h3>
-          <p>
-            Modern, responsive websites designed to help businesses
-            establish a strong online presence.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-number">02 / DESIGN</div>
-          <h3>Graphic Design</h3>
-          <p>
-            Professional flyers, social media graphics, banners,
-            logos and promotional designs.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-number">03 / SOCIAL</div>
-          <h3>Social Media</h3>
-          <p>
-            Creative content and digital support that helps brands
-            communicate consistently with their audience.
-          </p>
-        </div>
-
+      <div class="contact-item">
+        <strong>📧 Email</strong>
+        <p>hello@cipasso.com</p>
       </div>
-    </div>
-  </section>
 
-  <!-- PORTFOLIO -->
-  <section id="work">
-    <div class="container">
-
-      <div class="section-label">Selected work</div>
-
-      <h2 class="section-title">
-        Work we're proud of.
-      </h2>
-
-      <div class="portfolio-grid">
-
-        <div class="project">
-          <small>BRANDING</small>
-          <h3>Creative Brand Identity</h3>
-        </div>
-
-        <div class="project">
-          <small>WEB DESIGN</small>
-          <h3>Business Website</h3>
-        </div>
-
-        <div class="project">
-          <small>SOCIAL MEDIA</small>
-          <h3>Social Campaign</h3>
-        </div>
-
-        <div class="project">
-          <small>GRAPHICS</small>
-          <h3>Promotional Design</h3>
-        </div>
-
+      <div class="contact-item">
+        <strong>📍 Location</strong>
+        <p>Nigeria</p>
       </div>
-    </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-
-      <div class="about">
-
-        <div class="about-text">
-          <div class="section-label">About Moles</div>
-
-          <h2 class="section-title">
-            Small studio.<br>
-            Big ideas.
-          </h2>
-
-          <p>
-            Moles Creativivity is a digital creative studio focused on
-            helping businesses present themselves professionally online.
-          </p>
-
-          <p>
-            From a simple business flyer to a complete website,
-            we turn ideas into clean and useful digital experiences.
-          </p>
-
-          <a href="#contact" class="btn btn-primary">
-            Work With Us
-          </a>
-        </div>
-
-        <div class="stats">
-
-          <div class="stat">
-            <strong>01</strong>
-            <span>Creative Direction</span>
-          </div>
-
-          <div class="stat">
-            <strong>02</strong>
-            <span>Web Development</span>
-          </div>
-
-          <div class="stat">
-            <strong>03</strong>
-            <span>Visual Design</span>
-          </div>
-
-          <div class="stat">
-            <strong>∞</strong>
-            <span>Ideas</span>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-
-      <div class="cta">
-
-        <h2>Have a project?</h2>
-
-        <p>
-          Let's turn your idea into something people will remember.
-        </p>
-
-        <a
-          href="https://wa.me/2340000000000"
-          class="btn"
-          target="_blank"
-        >
-          Chat on WhatsApp
-        </a>
-
+      <div class="contact-item">
+        <strong>🕐 Working Hours</strong>
+        <p>Monday – Saturday</p>
       </div>
 
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-inner">
-      <span>© 2026 Moles Creativivity.</span>
-      <span>Design • Web • Digital</span>
-    </div>
-  </footer>
+    <form onsubmit="sendForm(event)">
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Your name"
+        required
+      >
+
+      <input
+        type="tel"
+        id="phone"
+        placeholder="Phone number"
+        required
+      >
+
+      <select id="service" required>
+        <option value="">Select a service</option>
+        <option>Website Development</option>
+        <option>Graphic Design</option>
+        <option>Branding</option>
+        <option>Social Media</option>
+        <option>Online Store</option>
+        <option>Other</option>
+      </select>
+
+      <textarea
+        id="message"
+        placeholder="Tell us about your project..."
+        required
+      ></textarea>
+
+      <button class="btn btn-primary" type="submit">
+        Send Request
+      </button>
+
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>
+    © 2026 <strong>CiPasso</strong>. All rights reserved.
+  </p>
+</footer>
+
+<a
+  class="whatsapp"
+  href="https://wa.me/2347056330853"
+  target="_blank"
+  aria-label="WhatsApp"
+>
+  💬
+</a>
+
+<script>
+
+  function toggleMenu() {
+    document
+      .getElementById("navLinks")
+      .classList.toggle("active");
+  }
+
+  function sendForm(event) {
+
+    event.preventDefault();
+
+    const name =
+      document.getElementById("name").value;
+
+    const phone =
+      document.getElementById("phone").value;
+
+    const service =
+      document.getElementById("service").value;
+
+    const message =
+      document.getElementById("message").value;
+
+    const text =
+      `Hello CiPasso!%0A%0A` +
+      `Name: ${name}%0A` +
+      `Phone: ${phone}%0A` +
+      `Service: ${service}%0A` +
+      `Project: ${message}`;
+
+    window.open(
+      `https://wa.me/2347056330853?text=${text}`,
+      "_blank"
+    );
+  }
+
+</script>
 
 </body>
 </html>
